@@ -120,7 +120,7 @@ where,
 &nbsp;\
 Note:  Inside the docker container,  the application listens in port **9090** and the working directory is **/app**\
 &nbsp;
-3.  Build NGIN-LB container\
+3.  Build NGINX-LB container\
 `$ cd {path/to/call-event-service}/main/nginx`\
 `$ docker build -t aureus-prototype/nginx-lb .`
 &nbsp;\
@@ -128,5 +128,5 @@ Note:  Inside the docker container,  the application listens in port **9090** an
 4.  Run NGINX-LB container and assign it with an ip address\
 `$ docker run --network=ces-brnet --ip=172.19.3.5 -it -p 8080:80 aureus-prototype/nginx-lb`\
 &nbsp;
-5.  Run `CallEventClient.java` to test located in src/test/java
+5.  To test, run `CallEventClient.java` which is located in src/test/java
  
