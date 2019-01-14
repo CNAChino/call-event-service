@@ -34,11 +34,11 @@ Prerequisite:
 1.  Get the source code
 <br /> `$ git clone https://github.com/CNAChino/call-event-service.git`
 2.  Compile and Package Jar file
-<br /> `$ mvn package` or
+<br /> `$ mvn package`
+<br /> OR
 <br /> `$ mvn clean package`
 <br /> This will compile, create the application jar file and create the docker image.  The following command can be used to manually build the docker image. 
 <br /> `$ docker build -t {docker.image.name.prefix}/{project.artifactId}:{tag} .`
-<br />
 <br /> where, **docker.image.name.prefix** and **project.artifactId** are set in `pom.xml`. 
 <br /> `<tag>` is `project.version` from pom.xml.
 <br />
