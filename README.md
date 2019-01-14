@@ -16,7 +16,7 @@ A data collector for voice call events.
 * Longtitude
 
 This service is a prototype to integrate the following technologies:
-1. Spring Boot - for running and application config.
+1. Spring Boot - for running the application and application configuration.
 2. gRPC - RPC protocol framework 
 3. Docker - run the application in a container and use docker networking
 4. NGINX - load balancer 
@@ -56,7 +56,7 @@ To run the docker image, execute:\
 `$ docker run -it -p {host-port}:9090 -v {host-local-log-dir}:/app/logs {docker.image.name.prefix}/{project.artifactId}:{tag}`\
 &nbsp;\
 where,
-* replace **docker.image.name.prefix** and **project.artifactId** with corresponding values from `pom.xml`.
+* `{docker.image.name.prefix}` and `{project.artifactId}` values are from `pom.xml`.
 * `{tag}` is `project.version` from pom.xml.
 * `{host-port}` is port to listen to in your host operating system.
 * `{host-local-log-dir}` is path to a file directory in your host operating system.
