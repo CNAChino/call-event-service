@@ -15,7 +15,7 @@ A data collector and processing for voice call events.
 * Latitude
 * Longtitude
 
-For version 1.0, the events received are discarded.  Next version is to publish the events to **Apache Kafka**.
+For version 1.0, the events received are discarded.  In next version, a feature to publish events to **Apache Kafka** will be included..
 
 Call Event Service 1.0 is a prototype to integrate the following technologies:
 1. Spring Boot - for running the application and application configuration.
