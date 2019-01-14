@@ -5,13 +5,13 @@
 
     <groupId>com.three55</groupId>
     <artifactId>call-event-service</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
 
     <properties>
         <grpc.version>1.17.1</grpc.version>
         <java.version>1.8</java.version>
         <dockerfile.maven.plugin.version>1.4.9</dockerfile.maven.plugin.version>
-        <docker.image.name.prefix>cnaureusdev</docker.image.name.prefix>
+        <docker.image.name.prefix>aureus-prototype</docker.image.name.prefix>
     </properties>
 
     <!-- Inherit defaults from Spring Boot -->
@@ -85,7 +85,7 @@
                 <groupId>com.spotify</groupId>
                 <artifactId>dockerfile-maven-plugin</artifactId>
                 <version>${dockerfile.maven.plugin.version}</version>
-                <!-- Wire up to the default build phases -->
+                <!-- Wire up to the default.conf build phases -->
                 <executions>
                     <execution>
                         <id>default</id>
