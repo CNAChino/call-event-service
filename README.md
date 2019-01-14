@@ -1,6 +1,6 @@
 # Call Event Service 1.0
 
-A data collector and processing for voice call events.  
+A data collector and processing system for voice call events.  The following information is included in the event:
 
 * Mobile Network Code (MNC) 
 * Mobile Country Code (MCC) 
@@ -15,7 +15,7 @@ A data collector and processing for voice call events.
 * Latitude
 * Longtitude
 
-For version 1.0, the events received are discarded.  In next version, a feature to publish events to **Apache Kafka** will be included..
+For version 1.0, the events received are discarded.  In the next version, a feature to publish events to **Apache Kafka** will be included..
 
 Call Event Service 1.0 is a prototype to integrate the following technologies:
 1. Spring Boot - for running the application and application configuration.
@@ -28,7 +28,7 @@ Call Event Service 1.0 is a prototype to integrate the following technologies:
 ![TD Image](appdesign.png)
 
 Notes on NGINX Load Balancing:
-1. gRPC messages are transported over HTTP/2 either over on encrypted TLS or not.
+1. gRPC messages are transported over HTTP/2 either over TLS or not.
 2. NGINX receives gRPC traffic using HTTP and proxies it using **grpc_pass** directive.
 
 Following is an extract from:
