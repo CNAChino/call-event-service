@@ -108,8 +108,8 @@ Procedure:
 `$ docker network create --driver bridge --subnet 172.19.0.0/16 ces-brnet`\
 &nbsp;
 2.  Run N (2 for this guide) application containers assigning each with an ip address.\
-`docker run --name ces1 --network=ces-brnet --ip=172.19.3.6 -itd -v {host-local-log-dir}:/app/logs {docker.image.name.prefix}/{project.artifactId}:{tag}`\
-`docker run --name ces2 --network=ces-brnet --ip=172.19.3.7 -itd -v {host-local-log-dir}:/app/logs {docker.image.name.prefix}/{project.artifactId}:{tag}`\
+`$ docker run --name ces1 --network=ces-brnet --ip=172.19.3.6 -itd -v {host-local-log-dir}:/app/logs {docker.image.name.prefix}/{project.artifactId}:{tag}`\
+`$ docker run --name ces2 --network=ces-brnet --ip=172.19.3.7 -itd -v {host-local-log-dir}:/app/logs {docker.image.name.prefix}/{project.artifactId}:{tag}`\
 &nbsp;\
 where,
 * `{host-local-log-dir}` is the  path to a file directory in your host operating system for logfiles.
@@ -117,12 +117,6 @@ where,
 * `{tag}` is `project.version` from pom.xml.
 &nbsp;\
 Note:  Inside the docker container,  the application listens in port **9090** and the working directory is **/app**\
-&nbsp;
-3.  Attach the containers on the bridge network\
-`$ docker network connect ces-brnet {container-id-1}`\
-`$ docker network connect ces-brnet {container-id-2}`\
-&nbsp;\
-run `docker ps` to get container ids.\
 &nbsp;
 4.  Build NGIN-LB container\
 `$ cd {path/to/call-event-service}/main/nginx`\
