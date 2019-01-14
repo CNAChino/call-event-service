@@ -25,28 +25,31 @@ This service is a prototype to integrate the following technologies:
 
 ![TD Image](appdesign.png)
 
-## Build
+> ## Build
+>
+> Prerequisite:  
+>> Install **Java 1.8 SDK**, **Git**, **Maven**, **Docker**, **call-event-proto**.  
+>> Note:  see https://github.com/CNAChino/call-event-proto to install call-event-proto.       
+>
+> Procedure:
+>> 1.  Get the source code  
+>> `$ git clone https://github.com/CNAChino/call-event-service.git`  
+>> 2.  Compile and package jar file  
+>> `$ mvn package`  
+>> OR  
+>> `$ mvn clean package`
+>>  
+>> Note:  This will compile and create application jar file / docker image.   
+>> The following command can be used to manually build the docker image.  
+>> `$ docker build -t docker.image.name.prefix/project.artifactId:tag .`  
+>> where  
+>> `docker.image.name.prefix` and `project.artifactId` are set in `pom.xml`.  
+>> `tag` is `project.version` from pom.xml.  
+>> To remove the image from your docker local repository, run the following command:  
+>> `$ docker image rm <docker.image.name.prefix>/<project.artifactId>:<tag>`
 
-Prerequisite:  
-Install **Java 1.8 SDK**, **Git**, **Maven**, **Docker**, **call-event-proto**.  
-Note:  see https://github.com/CNAChino/call-event-proto to install call-event-proto.     
 
-1.  Get the source code  
-`$ git clone https://github.com/CNAChino/call-event-service.git`  
-2.  Compile and Package Jar file  
-`$ mvn package`  
-OR  
-`$ mvn clean package`  
-This will compile, create the application jar file and create the docker image.    
-The following command can be used to manually build the docker image.  
-`$ docker build -t docker.image.name.prefix/project.artifactId:tag .`  
-where,  
-`docker.image.name.prefix` and `project.artifactId` are set in `pom.xml`.  
-`tag` is `project.version` from pom.xml.  
-To remove the image from your docker local repository, run the following command:  
-`$ docker image rm <docker.image.name.prefix>/<project.artifactId>:<tag>`  
-  
-  
+
 ## Run the Application
 
 To run the docker image, execute:
