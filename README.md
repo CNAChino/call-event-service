@@ -1,6 +1,6 @@
 # Call Event Service
 
-A data collector of voice call events.  
+A data collector for voice call events.  
 
 * Mobile Network Code (MNC) 
 * Mobile Country Code (MCC) 
@@ -23,9 +23,9 @@ This service is a prototype to integrate the following technologies:
  
 ## Technical Design
 
-![TD Image]
+![TD Image](appdesign.png)
 
-## Build
+## Building the Application
 Prerequisite:\
 Install **Java 1.8 SDK**, **Git**, **Maven**, **Docker**, **call-event-proto**.\
 Note:  see https://github.com/CNAChino/call-event-proto to install call-event-proto.\
@@ -49,7 +49,7 @@ To remove the image from your docker local repository, run the following command
 `$ docker image rm {docker.image.name.prefix}/{project.artifactId}:{tag}`
 
 
-## Run the Application
+## Running the Application
 
 To run the docker image, execute:\
 &nbsp;\
