@@ -1,6 +1,6 @@
 # Call Event Service
 
-A data collector of call events, i.e.  after a successful or failed voice call, the calling application sends a log event to this service with the following data:
+A data collector of voice call events.  
 
 * Mobile Network Code (MNC) 
 * Mobile Country Code (MCC) 
@@ -15,13 +15,13 @@ A data collector of call events, i.e.  after a successful or failed voice call, 
 * Latitude
 * Longtitude
 
-This service services as a prototype to integrate the following technologies:
-1. Spring Boot - application lifecyle, configuration
-2. gRPC - protocol used to collect a voice call event 
-3. Docker - package application in to container and use docker networking
+This service is a prototype to integrate the following technologies:
+1. Spring Boot - run and configure application
+2. gRPC - RPC protocol framework 
+3. Docker - package/run the application in a container and use docker networking
 4. NGINX - load balancer / application gateway 
  
-##Technical Design
+## Technical Design
 
 ![TD Image](appdesign.png)
 
