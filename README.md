@@ -25,6 +25,36 @@ This service is a prototype to integrate the following technologies:
 
 ![TD Image](appdesign.png)
 
+Notes on NGINX Load Balancing:
+1. gRPC messages are transported over HTTP/2 either over on encrypted TLS or not.
+2. NGINX receives gRPC traffic using HTTP and proxies it using **grpc_pass** directive.
+
+Following is an extract from:
+
+src/main/nginx/nginx.conf
+~~~~
+http {
+  ...
+  include /etc/nginx/conf.d/*.conf;
+}
+~~~~
+&nbsp;\
+&nbsp;\
+src/main/nginx/conf.d/default.conf  
+~~~~
+upstream grpcservers {
+  server 172.19.3.6:9090;
+  server 172.19.3.7:9090;
+}
+
+server {
+  listen 80 http2;
+
+  location / {
+    grpc_pass grpc://grpcservers;
+  }
+}
+~~~~
 ## Building the Application
 Prerequisite:\
 Install **Java 1.8 SDK**, **Git**, **Maven**, **Docker**, **call-event-proto**.\
