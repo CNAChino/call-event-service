@@ -1,6 +1,6 @@
 # Call Event Service 1.0
 
-A data collector for voice call events.  
+A data collector and processing for voice call events.  
 
 * Mobile Network Code (MNC) 
 * Mobile Country Code (MCC) 
@@ -15,9 +15,9 @@ A data collector for voice call events.
 * Latitude
 * Longtitude
 
-For version 1.0, events receives are discarded.  Next version is to publish the event to **Apache Kafka**.git
+For version 1.0, the events received are discarded.  Next version is to publish the events to **Apache Kafka**.
 
-This service is a prototype to integrate the following technologies:
+Call Event Service 1.0 is a prototype to integrate the following technologies:
 1. Spring Boot - for running the application and application configuration.
 2. gRPC - RPC protocol framework 
 3. Docker - run the application in a container and use docker networking
