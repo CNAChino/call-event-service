@@ -1,4 +1,4 @@
-# Call Event Service
+# Call Event Service 1.0
 
 A data collector for voice call events.  
 
@@ -14,6 +14,8 @@ A data collector for voice call events.
 * OS Version
 * Latitude
 * Longtitude
+
+For version 1.0, events receives are discarded.  Next version is to publish the event to **Apache Kafka**.git
 
 This service is a prototype to integrate the following technologies:
 1. Spring Boot - for running the application and application configuration.
