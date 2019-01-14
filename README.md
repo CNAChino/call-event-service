@@ -18,7 +18,7 @@ A data collector and processing system for voice call events.  The following inf
 For version 1.0, the events received are discarded.  In the next version, a feature to publish events to **Apache Kafka** will be included..
 
 Call Event Service 1.0 is a prototype to integrate the following technologies:
-1. Spring Boot - for running the application and application configuration.
+1. Spring Boot - for running the application and take advantage of framework features.
 2. gRPC - RPC protocol framework 
 3. Docker - run the application in a container and use docker networking
 4. NGINX - load balancer 
