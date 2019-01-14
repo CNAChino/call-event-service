@@ -83,13 +83,15 @@ For `tag` use `project.version` from pom.xml.\
 
 To run the docker image, execute:\
 &nbsp;\
-`$ docker run -itd -p {host-port}:9090 -v {host-local-log-dir}:/app/logs {docker.image.name.prefix}/{project.artifactId}:{tag}`\
+`docker run --name {name} --network={network-name} --ip={ip-addr} -itd -v {host-local-log-dir}:/app/logs {docker.image.name.prefix}/{project.artifactId}:{tag}`\
 &nbsp;\
 where,
+* `{name}` is the name of container.
+* `{network-name}` is the name of docker network.
+* `{ip-addr}` is ip address that will be assigned to the container.
+* `{host-local-log-dir}` is the  path to a file directory in your host operating system for logfiles.
 * `{docker.image.name.prefix}` and `{project.artifactId}` values are from `pom.xml`.
 * `{tag}` is `project.version` from pom.xml.
-* `{host-port}` is the port to listen to in your host operating system.
-* `{host-local-log-dir}` is the  path to a file directory in your host operating system for logfiles.
 &nbsp;\
 Note:  Inside the docker container,  the application listens in port **9090** and the working directory is **/app**
 
@@ -106,14 +108,13 @@ Procedure:
 `$ docker network create --driver bridge --subnet 172.19.0.0/16 ces-brnet`\
 &nbsp;
 2.  Run N (2 for this guide) application containers assigning each with an ip address.\
-`$ docker run --network=ces-brnet --ip=172.19.3.6 -itd -p {host-port}:9090 -v {host-local-log-dir}:/app/logs {docker.image.name.prefix}/{project.artifactId}:{tag}`\
-`$ docker run --network=ces-brnet --ip=172.19.3.7 -itd -p {host-port}:9090 -v {host-local-log-dir}:/app/logs {docker.image.name.prefix}/{project.artifactId}:{tag}`\
+`docker run --name ces1 --network=ces-brnet --ip=172.19.3.6 -itd -v {host-local-log-dir}:/app/logs {docker.image.name.prefix}/{project.artifactId}:{tag}`\
+`docker run --name ces2 --network=ces-brnet --ip=172.19.3.7 -itd -v {host-local-log-dir}:/app/logs {docker.image.name.prefix}/{project.artifactId}:{tag}`\
 &nbsp;\
 where,
+* `{host-local-log-dir}` is the  path to a file directory in your host operating system for logfiles.
 * `{docker.image.name.prefix}` and `{project.artifactId}` values are from `pom.xml`.
 * `{tag}` is `project.version` from pom.xml.
-* `{host-port}` is the port to listen to in your host operating system.
-* `{host-local-log-dir}` is the  path to a file directory in your host operating system for logfiles.
 &nbsp;\
 Note:  Inside the docker container,  the application listens in port **9090** and the working directory is **/app**\
 &nbsp;

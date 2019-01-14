@@ -6,7 +6,7 @@ export PATH=/app:$JAVA_HOME/bin:${PATH}
 
 if [ "$1" = 'runapp' ]; then
 	cd /app
-    java -jar call-event-service-0.0.1-SNAPSHOT.jar
+    java -jar call-event-service-1.0.jar
 fi
 
 exec "$@"

@@ -5,7 +5,7 @@
 
     <groupId>com.three55</groupId>
     <artifactId>call-event-service</artifactId>
-    <version>0.0.1</version>
+    <version>1.0</version>
 
     <properties>
         <grpc.version>1.17.1</grpc.version>
