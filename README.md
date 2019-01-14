@@ -35,9 +35,8 @@ See  https://github.com/CNAChino/call-event-proto to install call-event-proto.
 2.  Compile and Package Jar file
 <br /> `$ mvn package` or
 <br /> `$ mvn clean package`
-<br />
 <br /> This will compile, create the application jar file and create the docker image.  The following command can be used to manually build the docker image. 
-<br /> `$ docker build -t <docker.image.name.prefix>/<project.artifactId>:<tag> .`
+<br /> `$ docker build -t {docker.image.name.prefix}/{project.artifactId}:{tag} .`
 <br />
 <br /> where, **docker.image.name.prefix** and **project.artifactId** are set in `pom.xml`. 
 <br /> `<tag>` is `project.version` from pom.xml.
