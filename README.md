@@ -25,37 +25,40 @@ This service is a prototype to integrate the following technologies:
 
 ![TD Image](appdesign.png)
 
-## Build>
-Prerequisite:  
-Install **Java 1.8 SDK**, **Git**, **Maven**, **Docker**, **call-event-proto**.  
-Note:  see https://github.com/CNAChino/call-event-proto to install call-event-proto.       
+## Build
+Prerequisite:\
+Install **Java 1.8 SDK**, **Git**, **Maven**, **Docker**, **call-event-proto**.\
+Note:  see https://github.com/CNAChino/call-event-proto to install call-event-proto.\
+&nbsp;\
 Procedure:
-1.  Get the source code  
-`$ git clone https://github.com/CNAChino/call-event-service.git`  
-2.  Compile and package jar file  
-`$ mvn package`  
-OR  
-`$ mvn clean package`  
-Note:  This will compile and create application jar file / docker image.   
-The following command can be used to manually build the docker image.  
-`$ docker build -t docker.image.name.prefix/project.artifactId:tag .`  
-where  
-`docker.image.name.prefix` and `project.artifactId` are set in `pom.xml`.  
-`tag` is `project.version` from pom.xml.  
-To remove the image from your docker local repository, run the following command:  
-`$ docker image rm <docker.image.name.prefix>/<project.artifactId>:<tag>`
+1.  Get the source code\
+`$ git clone https://github.com/CNAChino/call-event-service.git`
+
+2.  Compile and package jar file\
+`$ mvn package`\
+OR\
+`$ mvn clean package`\
+Note:  This will create the application jar file and the docker image.\
+&nbsp;\
+The following command can be used to manually build the docker image.\
+`$ docker build -t {docker.image.name.prefix}/{project.artifactId:tag} .`\
+&nbsp;\
+just replace values of `docker.image.name.prefix` and `project.artifactId` from `pom.xml`.  For `tag` use `project.version` from pom.xml.\
+&nbsp;\
+To remove the image from your docker local repository, run the following command:\
+`$ docker image rm {docker.image.name.prefix}/{project.artifactId}:{tag}`
 
 
 ## Run the Application
 
-To run the docker image, execute:
-
-`$ docker run -it -p <host-port>:9090 -v <host-local-log-dir>:/app/logs <docker.image.name.prefix>/<project.artifactId>:<tag>`
- <br />
- <br /> where,
- * **docker.image.name.prefix** and **project.artifactId** are set in `pom.xml`. 
- * `<tag>` is `project.version` from pom.xml.
- * `<host-port>` is port to listen to in your host operating system.
- * `<host-local-log-dir>` is path to a file directory in your host operating system.
- <br /> 
- <br /> Note:  Inside the docker container,  the application listens in port **9090** and working directory is **/app**
+To run the docker image, execute:\
+&nbsp;\
+`$ docker run -it -p {host-port}:9090 -v {host-local-log-dir}:/app/logs {docker.image.name.prefix}/{project.artifactId}:{tag}`\
+&nbsp;\
+where,
+* replace **docker.image.name.prefix** and **project.artifactId** with corresponding values from `pom.xml`.
+* `{tag}` is `project.version` from pom.xml.
+* `{host-port}` is port to listen to in your host operating system.
+* `{host-local-log-dir}` is path to a file directory in your host operating system.
+&nbsp;\
+Note:  Inside the docker container,  the application listens in port **9090** and working directory is **/app**
