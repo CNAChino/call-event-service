@@ -28,22 +28,22 @@ This service is a prototype to integrate the following technologies:
 ## Build
 
 Prerequisite: 
-<br /> Install **Java 1.8 SDK**, **Git**, **Maven**, **Docker**, **call-event-proto**.
-<br /> Note:  see https://github.com/CNAChino/call-event-proto to install call-event-proto.   
+Install **Java 1.8 SDK**, **Git**, **Maven**, **Docker**, **call-event-proto**.
+Note:  see https://github.com/CNAChino/call-event-proto to install call-event-proto.   
 
 1.  Get the source code
-<br /> `$ git clone https://github.com/CNAChino/call-event-service.git`
+`$ git clone https://github.com/CNAChino/call-event-service.git`
 2.  Compile and Package Jar file
-<br /> `$ mvn package`
-<br /> OR
-<br /> `$ mvn clean package`
-<br /> This will compile, create the application jar file and create the docker image.  The following command can be used to manually build the docker image. 
-<br /> `$ docker build -t docker.image.name.prefix/project.artifactId:tag .`    
+`$ mvn package`
+OR
+`$ mvn clean package`
+This will compile, create the application jar file and create the docker image.  The following command can be used to manually build the docker image. 
+`$ docker build -t docker.image.name.prefix/project.artifactId:tag .`    
 where, 
-<br /> `docker.image.name.prefix` and `project.artifactId` are set in `pom.xml`. 
-<br /> `tag` is `project.version` from pom.xml. 
-<br /> To remove the image from your docker local repository, run the following command: 
-<br /> `$ docker image rm <docker.image.name.prefix>/<project.artifactId>:<tag>`   
+`docker.image.name.prefix` and `project.artifactId` are set in `pom.xml`. 
+`tag` is `project.version` from pom.xml. 
+To remove the image from your docker local repository, run the following command: 
+`$ docker image rm <docker.image.name.prefix>/<project.artifactId>:<tag>`   
  
 
 ## Run the Application
