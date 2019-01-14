@@ -41,10 +41,8 @@ Prerequisite:
 <br /> `$ docker build -t docker.image.name.prefix/project.artifactId:tag .`
 <br /> where, 
 <br /> `docker.image.name.prefix` and `project.artifactId` are set in `pom.xml`. 
-<br /> `tag` is `project.version` from pom.xml.
-<br /> 
-<br /> To remove the image from your docker local repository, run the following command:
-<br /> 
+<br /> `tag` is `project.version` from pom.xml. 
+<br /> To remove the image from your docker local repository, run the following command: 
 <br /> `$ docker image rm <docker.image.name.prefix>/<project.artifactId>:<tag>`   
  
 
