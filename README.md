@@ -39,15 +39,13 @@ Prerequisite:
 <br /> `$ mvn clean package`
 <br /> This will compile, create the application jar file and create the docker image.  The following command can be used to manually build the docker image. 
 <br /> `$ docker build -t docker.image.name.prefix/project.artifactId:tag .`
-<br /> where., 
+<br /> where, 
 <br /> `docker.image.name.prefix` and `project.artifactId` are set in `pom.xml`. 
 <br /> `tag` is `project.version` from pom.xml.
-<br />
-<br /> To **remove the image from your docker local repository**, run the following command:
-<br />
-<br /> `$ docker image rm <docker.image.name.prefix>/<project.artifactId>:<tag>`
-<br />
-<br />   
+<br /> 
+<br /> To remove the image from your docker local repository, run the following command:
+<br /> 
+<br /> `$ docker image rm <docker.image.name.prefix>/<project.artifactId>:<tag>`   
  
 
 ## Run the Application
