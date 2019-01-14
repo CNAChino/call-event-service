@@ -16,14 +16,14 @@ A data collector of voice call events.
 * Longtitude
 
 This service is a prototype to integrate the following technologies:
-1. Spring Boot - run and configure application
+1. Spring Boot - for running and application config.
 2. gRPC - RPC protocol framework 
-3. Docker - package/run the application in a container and use docker networking
-4. NGINX - load balancer / application gateway 
+3. Docker - run the application in a container and use docker networking
+4. NGINX - load balancer 
  
 ## Technical Design
 
-![TD Image](appdesign.png)
+![TD Image](appdesign.png){ width=65% }
 
 ## Build
 Prerequisite:\
