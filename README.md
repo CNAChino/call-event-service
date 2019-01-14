@@ -58,7 +58,7 @@ To run the docker image, execute:\
 where,
 * `{docker.image.name.prefix}` and `{project.artifactId}` values are from `pom.xml`.
 * `{tag}` is `project.version` from pom.xml.
-* `{host-port}` is port to listen to in your host operating system.
-* `{host-local-log-dir}` is path to a file directory in your host operating system.
+* `{host-port}` is the port to listen to in your host operating system.
+* `{host-local-log-dir}` is the  path to a file directory in your host operating system for logfiles.
 &nbsp;\
-Note:  Inside the docker container,  the application listens in port **9090** and working directory is **/app**
+Note:  Inside the docker container,  the application listens in port **9090** and the working directory is **/app**
