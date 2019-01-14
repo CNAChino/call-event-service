@@ -67,7 +67,7 @@ Note:  Inside the docker container,  the application listens in port **9090** an
 ## Clustering the application on a docker bridge network
 
 Note:  Docker's bridge network applies to containers running on the same docker daemon host.\
-For clustering containers on multiple docker host, use overlay network.\
+For clustering containers on multiple docker host, use an overlay network.\
 &nbsp;\
 Prerequisite:\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create **/apps/logs1** and **/app/logs2**\
