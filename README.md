@@ -27,8 +27,9 @@ This service is a prototype to integrate the following technologies:
 
 ## Build
 
-Prerequisite: Install **Java 1.8 SDK**, **Git**, **Maven**, **Docker**, **call-event-proto**.
-See  https://github.com/CNAChino/call-event-proto to install call-event-proto.   
+Prerequisite: 
+<br /> Install **Java 1.8 SDK**, **Git**, **Maven**, **Docker**, **call-event-proto**.
+<br /> Note:  see https://github.com/CNAChino/call-event-proto to install call-event-proto.   
 
 1.  Get the source code
 <br /> `$ git clone https://github.com/CNAChino/call-event-service.git`
