@@ -23,7 +23,7 @@ This service is a prototype to integrate the following technologies:
  
 ## Technical Design
 
-![TD Image](appdesign.png){ width=65% }
+![TD Image](appdesign.png =200x200)
 
 ## Build
 Prerequisite:\
