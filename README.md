@@ -27,7 +27,7 @@ This service is a prototype to integrate the following technologies:
 
 ## Build
 
-Prerequisite: 
+Prerequisite:  
 Install **Java 1.8 SDK**, **Git**, **Maven**, **Docker**, **call-event-proto**.
 Note:  see https://github.com/CNAChino/call-event-proto to install call-event-proto.   
 
