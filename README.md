@@ -99,6 +99,6 @@ run `docker ps` to get container ids.\
 &nbsp;\
 &nbsp;
 5.  Run NGINX-LB container and assign it with an ip address\
-`$ docker run --network=ces-brnet --ip=172.19.3.5 -it -p 8080:80 nginx-lb`\
+`$ docker run --network=ces-brnet --ip=172.19.3.5 -it -p 8080:80 aureus-prototype/nginx-lb`\
 &nbsp;
 6.  Test 
