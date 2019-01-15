@@ -3,7 +3,6 @@ MAINTAINER  Carlo Feliciano Aureus <chino.aureus@gmail.com>
 
 # Setup Image
 # ============
-
 WORKDIR /app
 ENV JAVA_HOME /usr/lib/jvm/default-java
 ENV PATH ".:$JAVA_HOME/bin:${PATH}"
