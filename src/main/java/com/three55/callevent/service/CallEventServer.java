@@ -56,9 +56,8 @@ public class CallEventServer implements ApplicationContextAware  {
             @Override
             public void run() {
                 // Use stderr here since the logger may has been reset by its JVM shutdown hook.
-                logger.info("*** shutting down gRPC server since JVM is shutting down");
+                logger.info("JVM is shutting down");
                 CallEventServer.this.stop();
-                logger.info("*** server shut down");
             }
         });
         logger.info("Server started, listening on " + port);
