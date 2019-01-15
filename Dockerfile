@@ -4,12 +4,12 @@ MAINTAINER  Carlo Feliciano Aureus <chino.aureus@gmail.com>
 COPY target/call-event-service-1.0.jar /tmp/call-event-service-1.0.jar
 COPY ubuntu-linux-run.sh /tmp/ubuntu-linux-run.sh
 
-RUN apt-get update &&
-    apt-get install -y openjdk-8-jre &&
-    mkdir /app &&
-    mv /tmp/call-event-service-1.0.jar /app &&
-    mv /tmp/ubuntu-linux-run.sh /app &&
-    chmod +x /app/*.sh &&
+RUN apt-get update && \
+    apt-get install -y openjdk-8-jre && \
+    mkdir /app && \
+    mv /tmp/call-event-service-1.0.jar /app && \
+    mv /tmp/ubuntu-linux-run.sh /app && \
+    chmod +x /app/*.sh
 
 # Setup Image
 # ============
