@@ -104,29 +104,26 @@ Note:  Docker's bridge network applies to containers running on the same docker 
 For clustering containers on multiple docker host, use an overlay network.\
 &nbsp;\
 Prerequisite:\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create **/apps/logs1** and **/app/logs2**\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create **/apps/nginxlogs**, **/apps/logs1** and **/apps/logs2**.  Make sure these directories are writable by the application\
 Procedure:
 1.  Create the bridge network with name **ces-brnet** and subnet address **172.19.0.0/16**\
 `$ docker network create --driver bridge --subnet 172.19.0.0/16 ces-brnet`\
 &nbsp;
 2.  Run N (2 for this guide) application containers assigning each with an ip address.\
-`$ docker run --name ces1 --network=ces-brnet --ip=172.19.3.6 -itd -v {host-local-log-dir}:/app/logs {docker.image.name.prefix}/{project.artifactId}:{tag}`\
-`$ docker run --name ces2 --network=ces-brnet --ip=172.19.3.7 -itd -v {host-local-log-dir}:/app/logs {docker.image.name.prefix}/{project.artifactId}:{tag}`\
-&nbsp;\
-where,
-* `{host-local-log-dir}` is the  path to a file directory in your host operating system for logfiles.
-* `{docker.image.name.prefix}` and `{project.artifactId}` values are from `pom.xml`.
-* `{tag}` is `project.version` from pom.xml.
+`$ docker run --name ces1 --network=ces-brnet --ip=172.19.3.6 -itd -v /apps/logs1:/app/logs aureus-prototype/call-event-service:1.0`\
+`$ docker run --name ces2 --network=ces-brnet --ip=172.19.3.7 -itd -v /apps/logs2:/app/logs aureus-prototype/call-event-service:1.0`\
 &nbsp;\
 Note:  Inside the docker container,  the application listens in port **9090** and the working directory is **/app**\
 &nbsp;
 3.  Build NGINX-LB container\
-`$ cd {path/to/call-event-service}/main/nginx`\
+`$ cd {path/to/call-event-service}/src/main/nginx`\
 `$ docker build -t aureus-prototype/nginx-lb .`
 &nbsp;\
 &nbsp;
 4.  Run NGINX-LB container and assign it with an ip address\
-`$ docker run --network=ces-brnet --ip=172.19.3.5 -it -p 8080:80 aureus-prototype/nginx-lb`\
+`$ docker run --network=ces-brnet --ip=172.19.3.5 -v /apps/nginxlogs:/var/log/nginx -itd -p 8080:80 aureus-prototype/nginx-lb`\
+&nbsp;\
+access.log and error.log should be created in your /apps/nginxlogs directory.
 &nbsp;
-5.  To test, run `CallEventClient.java` which is located in src/test/java
+5.  To test, run `CallEventClient.java` which is located in src/test/java.  Check **/apps/nginxlogs**, **/apps/logs1** and **/apps/logs2**.  Messages should be logged both in **apps/logs1** and **apps/logs2**.  
  
