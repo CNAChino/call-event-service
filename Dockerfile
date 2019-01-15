@@ -15,7 +15,7 @@ ENV PATH ".:$JAVA_HOME/bin:${PATH}"
 # By default, the server listens on port 9090 as configured in application.properties
 EXPOSE 9090
 COPY target/call-event-service-1.0.jar /app/call-event-service-1.0.jar
-COPY ./ubuntu-linux-run.sh /app/ubuntu-linux-run.sh
+COPY ubuntu-linux-run.sh /app/ubuntu-linux-run.sh
 RUN chmod +x /app/ubuntu-linux-run.sh
 
 # command to run the server
