@@ -41,7 +41,8 @@ public class CallEventClient {
     }
 
     public static void main(String[] args) throws InterruptedException {
-        CallEventClient cec = new CallEventClient("localhost", 8080);
+        String host = args.length == 1 ? args[0]  : "localhost";
+        CallEventClient cec = new CallEventClient(host, 8080);
         try {
             for (int i = 0; i < 5; i++) {
                 cec.call();
