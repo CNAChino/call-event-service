@@ -83,9 +83,9 @@ For `tag` use `project.version` from pom.xml.\
 
 ## Running the Application
 
-To run the docker image, execute:\
+To run the docker image in foreground (add -d to run in background), execute:\
 &nbsp;\
-`docker run --name {name} --network={network-name} --ip={ip-addr} -itd -v {host-local-log-dir}:/app/logs {docker.image.name.prefix}/{project.artifactId}:{tag}`\
+`docker run --name {name} -it -v {host-local-log-dir}:/app/logs {docker.image.name.prefix}/{project.artifactId}:{tag}`\
 &nbsp;\
 where,
 * `{name}` is the name of container.
