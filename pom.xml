@@ -38,7 +38,7 @@
         <dependency>
             <groupId>com.three55</groupId>
             <artifactId>call-event-proto</artifactId>
-            <version>1.4-SNAPSHOT</version>
+            <version>1.0</version>
         </dependency>
 
         <!-- GRPC Dependencies -->
