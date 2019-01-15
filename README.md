@@ -58,8 +58,8 @@ server {
 }
 ~~~~
 ## Building the Application
-Prerequisite:\
-Install **Java 1.8 SDK**, **Git**, **Maven**, **Docker**, **call-event-proto**.\
+ Prerequisite:\
+Install **Java 1.8 SDK**, **Git**, **Maven 3**, **Docker**, **call-event-proto**.\
 Note:  see https://github.com/CNAChino/call-event-proto to install call-event-proto.\
 &nbsp;\
 Procedure:
