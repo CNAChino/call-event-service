@@ -115,30 +115,30 @@ For clustering containers on multiple docker host, use an overlay network.\
 &nbsp;\
 Prerequisite:
 1. Create **/apps/nginxlogs**, **/apps/logs1** and **/apps/logs2**.  Make sure these directories are writable by the application
-2. Start Neo4j Cluster.  This project has src/docker-compose.yml which defines the neo4j db cluster.  Execute:  
+2. Create the bridge network with name **ces-brnet** and subnet address **172.19.0.0/16**\
+`$ docker network create --driver bridge --subnet 172.19.0.0/16 ces-brnet`
+&nbsp;
+3. Start Neo4j Cluster.  This project has src/docker-compose.yml which defines the neo4j db cluster.  Execute:  
 `$ docker-compose up` or `$ docker-compose up -d`\
 wait for a few minutes then connect to neo4j browser via http://{localhost or your machine IP}:7474
 &nbsp;
 
 Procedure:
-1.  Create the bridge network with name **ces-brnet** and subnet address **172.19.0.0/16**\
-`$ docker network create --driver bridge --subnet 172.19.0.0/16 ces-brnet`\
-&nbsp;
-2.  Run N (2 for this guide) application containers assigning each with an ip address.\
+1.  Run N (2 for this guide) application containers assigning each with an ip address.\
 `$ docker run --name ces1 --network=ces-brnet --ip=172.19.3.6 -itd -v /apps/logs1:/app/logs aureus-prototype/call-event-service:1.0`\
 `$ docker run --name ces2 --network=ces-brnet --ip=172.19.3.7 -itd -v /apps/logs2:/app/logs aureus-prototype/call-event-service:1.0`\
 &nbsp;\
 Note:  Inside the docker container,  the application listens in port **9090** and the working directory is **/app**\
 &nbsp;
-3.  Build NGINX-LB container\
+2.  Build NGINX-LB container\
 `$ cd {path/to/call-event-service}/src/main/nginx`\
 `$ docker build -t aureus-prototype/nginx-lb .`
 &nbsp;\
 &nbsp;
-4.  Run NGINX-LB container and assign it with an ip address\
+3.  Run NGINX-LB container and assign it with an ip address\
 `$ docker run --network=ces-brnet --ip=172.19.3.5 -v /apps/nginxlogs:/var/log/nginx -itd -p 8080:80 aureus-prototype/nginx-lb`\
 &nbsp;\
 access.log and error.log should be created in your /apps/nginxlogs directory.
 &nbsp;
-5.  To test, run `CallEventClient.java` which is located in src/test/java.  Check **/apps/nginxlogs**, **/apps/logs1** and **/apps/logs2**.  Messages should be logged both in **apps/logs1** and **apps/logs2**.  
+4.  To test, run `CallEventClient.java` which is located in src/test/java.  Check **/apps/nginxlogs**, **/apps/logs1** and **/apps/logs2**.  Messages should be logged both in **apps/logs1** and **apps/logs2**.  
  
