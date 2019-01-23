@@ -48,3 +48,5 @@ nb-configuration.xml
 release.properties
 pom.xml.releaseBackup
 pom.xml.tag
+
+start_neo4j_cluster.sh

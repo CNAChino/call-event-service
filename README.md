@@ -1,6 +1,13 @@
 # Call Event Service 1.0
 
-A data collector and processing system for voice call events.  The following information is included in the event:
+A sample application using the technologies:
+* Spring Boot - for running the application and take advantage of framework features.
+* gRPC - RPC protocol framework for sending event data to the backend 
+* Docker - run the application in a container
+* NGINX - load balancer
+* Neo4J - Graph DB
+
+This sample application collects and process voice call events.  The following information is included in the call event:
 
 * Mobile Network Code (MNC) 
 * Mobile Country Code (MCC) 
@@ -15,15 +22,16 @@ A data collector and processing system for voice call events.  The following inf
 * Latitude
 * Longtitude
 
-For version 1.0, the events received are discarded.  In the next version, a feature to publish events to **Apache Kafka** will be included..
+## Features
+* All components run in docker
+* docker network (Bridge) 
+* clustering / load balancing
+* list cellphone brands used in a telecom provider in a specific country (uses cypher to query neo4j)
 
-Call Event Service 1.0 is a prototype to integrate the following technologies:
-1. Spring Boot - for running the application and take advantage of framework features.
-2. gRPC - RPC protocol framework 
-3. Docker - run the application in a container and use docker networking
-4. NGINX - load balancer 
+
+
  
-## Technical Design
+## Architecture
 
 ![TD Image](appdesign.png)
 
@@ -83,6 +91,8 @@ For `tag` use `project.version` from pom.xml.\
 
 ## Running the Application
 
+Prerequisite:  Start Neo4j Graph DB (Community or Enterprise edition).  Then create a neo4j user (disable Force Password Change).  Set the Uri, Username and Password in **application.properties**.
+
 To run the docker image in foreground (add -d to run in background), execute:\
 &nbsp;\
 `docker run --name {name} -it -v {host-local-log-dir}:/app/logs {docker.image.name.prefix}/{project.artifactId}:{tag}`\
@@ -103,8 +113,13 @@ Note:  Inside the docker container,  the application listens in port **9090** an
 Note:  Docker's bridge network applies to containers running on the same docker daemon host.\
 For clustering containers on multiple docker host, use an overlay network.\
 &nbsp;\
-Prerequisite:\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create **/apps/nginxlogs**, **/apps/logs1** and **/apps/logs2**.  Make sure these directories are writable by the application\
+Prerequisite:
+1. Create **/apps/nginxlogs**, **/apps/logs1** and **/apps/logs2**.  Make sure these directories are writable by the application
+2. Start Neo4j Cluster.  This project has src/docker-compose.yml which defines the neo4j db cluster.  Execute:  
+`$ docker-compose up` or `$ docker-compose up -d`\
+wait for a few minutes then connect to neo4j browser via http://{localhost or your machine IP}:7474
+&nbsp;
+
 Procedure:
 1.  Create the bridge network with name **ces-brnet** and subnet address **172.19.0.0/16**\
 `$ docker network create --driver bridge --subnet 172.19.0.0/16 ces-brnet`\

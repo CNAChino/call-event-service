@@ -34,9 +34,9 @@ public class CallEventServer implements ApplicationContextAware  {
 
         this.port = config.getServerListenPort();
 
-        start();
+        //start();
 
-        blockUntilShutdown();
+        //blockUntilShutdown();
     }
 
 
