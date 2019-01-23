@@ -26,11 +26,11 @@ This sample application collects and process voice call events.  The following i
 * All components run in docker
 * docker network (Bridge) 
 * clustering / load balancing
-* list cellphone brands used in a telecom provider in a specific country (uses cypher to query neo4j)
+* clustered neo4j graph db via docker-copmose
+* submit call event
+* get average signal strength (mock data) for a specific cellphone brand  (uses cypher to query neo4j)
 
 
-
- 
 ## Architecture
 
 ![TD Image](appdesign.png)
