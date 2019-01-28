@@ -8,7 +8,6 @@ import com.three55.callevent.utils.NetworkType;
 import io.grpc.stub.StreamObserver;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.time.Instant;
 import java.time.ZoneId;
@@ -17,11 +16,18 @@ public class EventCollectorService extends EventCollectorGrpc.EventCollectorImpl
 
     private static final Logger logger = LogManager.getLogger(CallEventServer.class);
 
-    @Autowired
     private CellUsageDao dao;
 
     public EventCollectorService() {
         logger.info("EventCollectorService created");
+    }
+
+    public void init() {
+        if (this.dao == null) throw new NullPointerException("CellUsageDao is null");
+    }
+
+    public void destroy() {
+        logger.info("destroying");
     }
 
     @Override
@@ -58,4 +64,11 @@ public class EventCollectorService extends EventCollectorGrpc.EventCollectorImpl
 
     }
 
+    public CellUsageDao getDao() {
+        return dao;
+    }
+
+    public void setDao(CellUsageDao dao) {
+        this.dao = dao;
+    }
 }

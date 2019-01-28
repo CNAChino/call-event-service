@@ -15,7 +15,7 @@
             <AppenderRef ref="Console" />
             <AppenderRef ref="File" />
         </Logger>
-        <logger name="org.springframework.boot" level="trace">
+        <logger name="org.springframework.boot" level="info">
             <appender-ref ref="Console"/>
             <appender-ref ref="File"/>
         </logger>

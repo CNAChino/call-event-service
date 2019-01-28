@@ -10,15 +10,12 @@ import org.neo4j.driver.v1.*;
 import org.neo4j.driver.v1.exceptions.AuthenticationException;
 import org.neo4j.driver.v1.exceptions.ServiceUnavailableException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
-import javax.annotation.PostConstruct;
 import java.io.Closeable;
 import java.io.IOException;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
-@Component
 public class CellUsageNeo4jDao implements CellUsageDao, Closeable {
 
     private static final Logger logger = LogManager.getLogger(CellUsageNeo4jDao.class);
@@ -69,7 +66,6 @@ public class CellUsageNeo4jDao implements CellUsageDao, Closeable {
     /**
      * Initialize.  Configure driver.
      */
-    @PostConstruct
     public void init()
     {
         logger.info("Initializing");
@@ -101,6 +97,16 @@ public class CellUsageNeo4jDao implements CellUsageDao, Closeable {
         }
 
         logger.info("Initializing done");
+    }
+
+    public void destroy()  {
+        logger.info("Disconnecing");
+        try {
+            this.close();
+        } catch (IOException e) {
+            logger.error(e.getMessage(), e);
+        }
+        logger.info("Disconneced");
     }
 
 

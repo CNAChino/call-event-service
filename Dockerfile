@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu:18.04
 MAINTAINER  Carlo Feliciano Aureus <chino.aureus@gmail.com>
 
 COPY target/call-event-service-1.0.jar /tmp/call-event-service-1.0.jar
@@ -18,9 +18,10 @@ ENV JAVA_HOME /usr/lib/jvm/default-java
 ENV PATH ".:$JAVA_HOME/bin:${PATH}"
 
 # Spring App Configuration.
-# Override the settings in application.properties in the section
-# Example:  ENV APP_SERVER_LISTEN_PORT 9090
-
+# uncomment to Override the settings in application.properties in the section
+#APP_NEO4J__URI=bolt+routing://localhost:7687
+#APP_NEO4J_USER=cesuser
+#APP_NEO4J_PASSWORD=cesuser
 
 
 # the server listens on port 9090 as configured in application.properties

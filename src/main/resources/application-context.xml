@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--GRPC Server-->
+    <bean id="serverBean" class="com.three55.callevent.service.CallEventServer"
+          scope="singleton" init-method="init" destroy-method="destroy" lazy-init="false"
+          depends-on="eventCollectorSvcBean">
+        <property name="services">
+            <list>
+                <ref bean="eventCollectorSvcBean"/>
+            </list>
+        </property>
+    </bean>
+
+
+    <!--GRPC Services-->
+    <bean id="eventCollectorSvcBean" class="com.three55.callevent.service.EventCollectorService"
+          scope="singleton" init-method="init" destroy-method="destroy" lazy-init="false"
+          depends-on="neo4jDaoBean">
+        <property name="dao">
+            <ref bean="neo4jDaoBean"/>
+        </property>
+
+    </bean>
+
+    <!--Data Access Object-->
+    <bean id="neo4jDaoBean" class="com.three55.callevent.dao.CellUsageNeo4jDao"
+          scope="singleton" init-method="init" destroy-method="destroy" lazy-init="false">
+    </bean>
+
+</beans>

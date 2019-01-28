@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 /**
  * Configuration client facing related classes, e.g. CallEventServer
  */
+@Component
 @ConfigurationProperties(prefix="app")
 public class AppConfig {
 
@@ -19,9 +20,12 @@ public class AppConfig {
      * the port client-facing server listens to.
      */
     private int serverListenPort;
-    private String neo4jUri;// = "bolt://localhost:7687";
-    private String neo4jUser;// = "neo4j";
-    private String neo4jPassword;// = "password";
+
+    private String neo4jUri;
+
+    private String neo4jUser;
+
+    private String neo4jPassword;
 
     public AppConfig() {
         logger.info("AppConfig()");
